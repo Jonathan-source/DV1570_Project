@@ -64,6 +64,7 @@ int main()
 	if (!device)
 		return EXIT_FAILURE;
 
+	
 	device->setWindowCaption(L"Test_Project");
 	irr::video::IVideoDriver* driver = device->getVideoDriver();
 	irr::scene::ISceneManager* sceneManager = device->getSceneManager();
@@ -124,20 +125,48 @@ int main()
 	//
 	// MAIN LOOP.
 	//
-	while (device->run()) 
+	int lastFPS = -1;
+	int framesPerSecond = -1;
+	irr::u32 last = device->getTimer()->getTime();
+
+	while (device->run())
 	{
-		driver->beginScene(true, true, irr::video::SColor(255, 90, 101, 140));
+		const irr::u32 now = device->getTimer()->getTime();
+		const irr::f32 deltaTime = (irr::f32)(now - last) / 1000.f; // Time in seconds
+		last = now;
+		if (device->isWindowActive())
+		{
 
-		sceneManager->drawAll();
-		guienv->drawAll();
+			// RunOneIterationOfGameLoop(deltaTime);
 		
-		driver->endScene();
+			// Test Button.
+			if (button->isPressed()) {
+				rotX += 1; rotY += 1; rotZ += 1;
+				meshSceneNode->setRotation(irr::core::vector3df(rotX, rotY, rotZ));
+				dirLight->setRotation(irr::core::vector3df(0, rotY, 0));
+			}
+			
+			
+			driver->beginScene(true, true, irr::video::SColor(255, 90, 101, 140));
+			sceneManager->drawAll();
+			guienv->drawAll();
+			driver->endScene();
 
-		// Test Button.
-		if (button->isPressed()) {
-			rotX += 1; rotY += 1; rotZ += 1;
-			meshSceneNode->setRotation(irr::core::vector3df(rotX, rotY, rotZ));
-			dirLight->setRotation(irr::core::vector3df(0, rotY, 0));
+
+			// Add FPS to the title.
+			framesPerSecond = driver->getFPS();
+			if (lastFPS != framesPerSecond)
+			{
+				irr::core::stringw str = L"Test_Project ";
+				str += L"      FPS: ";
+				str += framesPerSecond;
+				device->setWindowCaption(str.c_str());
+				lastFPS = framesPerSecond;
+			}
+		}
+		else
+		{
+			device->yield();
 		}
 	}
 
