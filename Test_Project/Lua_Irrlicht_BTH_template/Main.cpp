@@ -31,8 +31,8 @@ int main()
 	std::thread conThread(ConsoleThread, pLuaEngine->L());
 
 	// Window data.
-	int windowWidth = 1280;
-	int windowHeight = 1024;
+	int windowWidth = 1920;
+	int windowHeight = 1080;
 
 	// Test: load window config from Lua.
 	pLuaEngine->ExecuteFile("C:/Dev/Lua_Irrlicht_BTH_template/Scripts/window_config.lua");

@@ -1,0 +1,16 @@
+
+# Rendering: C++
+
+# Texture and Scripting Memory Management: C++
+
+# Physics and Collision detection: C++
+
+# Asset Loading: Lua - but hosted (Memory loading and file reading) in C++
+
+# AI: Lua - but hosted in C++
+
+# Scoreboard: Lua
+
+# Weapon behavior: Lua
+
+# Map generation: Lua (hard-coded + editor)
