@@ -1,4 +1,22 @@
-﻿  LuaEngine.cpp
-  Main.cpp
-  Generating Code...
+﻿  Main.cpp
+C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(140,64): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=irr::f32
+          ]
+C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(140,58): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=irr::f32
+          ]
+C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(140,52): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=irr::f32
+          ]
+C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(141,50): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=irr::f32
+          ]
   Lua_Irrlicht_BTH_template.vcxproj -> C:\Dev\DV1570_Project\Test_Project\Bin\x64\Lua_Irrlicht_BTH_templateD.exe

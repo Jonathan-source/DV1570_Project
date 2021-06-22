@@ -1,6 +1,8 @@
 
 # Rendering: C++
 
+# Player movement: Lua
+
 # Texture and Scripting Memory Management: C++
 
 # Physics and Collision detection: C++
@@ -13,4 +15,4 @@
 
 # Weapon behavior: Lua
 
-# Map generation: Lua (hard-coded + editor)
+# Map generation: Lua (hard-coded + editor) - textfile.
