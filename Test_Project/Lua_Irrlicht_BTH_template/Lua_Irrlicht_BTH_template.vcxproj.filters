@@ -11,10 +11,13 @@
     <ClCompile Include="LuaEngine.cpp">
       <Filter>Lua</Filter>
     </ClCompile>
+    <ClCompile Include="Config.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LuaEngine.h">
       <Filter>Lua</Filter>
     </ClInclude>
+    <ClInclude Include="Core.h" />
+    <ClInclude Include="Config.h" />
   </ItemGroup>
 </Project>

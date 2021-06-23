@@ -20,7 +20,7 @@ public:
     void ExecuteString(const char* expression);
 
 private:
-    lua_State* m_L;
+    lua_State* m_L = nullptr;
 
 private:
 

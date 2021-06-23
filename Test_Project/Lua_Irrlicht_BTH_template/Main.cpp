@@ -12,8 +12,10 @@
 #include "lua.hpp"
 #include <irrlicht.h>
 
-// Custom Lua class.
+// Custom Classes.
 #include "LuaEngine.h"
+#include "Config.h"
+
 
 void ConsoleThread(lua_State* L) {
 	char command[1000];
@@ -25,47 +27,77 @@ void ConsoleThread(lua_State* L) {
 	}
 }
 
-int main()
+
+// Jesus Fuck...
+void loadConfig(LuaEngine* pLuaEngine, engine_config_t &config)
 {
-	LuaEngine* pLuaEngine = new LuaEngine();
-	std::thread conThread(ConsoleThread, pLuaEngine->L());
-
-	// Window data.
-	int windowWidth = 1920;
-	int windowHeight = 1080;
-
-	// Test: load window config from Lua.
-	pLuaEngine->ExecuteFile("C:/Dev/Lua_Irrlicht_BTH_template/Scripts/window_config.lua");
+	pLuaEngine->ExecuteFile("C:/Dev/DV1570_Project/Test_Project/Scripts/engine_config.lua");
 	{
-		lua_getglobal(pLuaEngine->L(), "config_table");
+		lua_getglobal(pLuaEngine->L(), "config");
 		if (lua_istable(pLuaEngine->L(), -1))
 		{
-			lua_getfield(pLuaEngine->L(), -1, "window_width");
-			lua_getfield(pLuaEngine->L(), -2, "window_height");
+			lua_pushstring(pLuaEngine->L(), "title");			
+			lua_gettable(pLuaEngine->L(), -2);
+			config.title = (irr::core::stringw)lua_tostring(pLuaEngine->L(), -1);
+			lua_pop(pLuaEngine->L(), 1);
 
-			windowWidth = (int)lua_tonumber(pLuaEngine->L(), -2);	// Width was put on the stack first, so it has idx -2.
-			windowHeight = (int)lua_tonumber(pLuaEngine->L(), -1);	// Height was put on the stack last, so it has idx -1.
+			lua_pushstring(pLuaEngine->L(), "fullscreen");
+			lua_gettable(pLuaEngine->L(), -2);
+			config.fullscreen = (bool)lua_toboolean(pLuaEngine->L(), -1);
+			lua_pop(pLuaEngine->L(), 1);
+
+			lua_pushstring(pLuaEngine->L(), "vSync");
+			lua_gettable(pLuaEngine->L(), -2);
+			config.vSync = (bool)lua_toboolean(pLuaEngine->L(), -1);
+			lua_pop(pLuaEngine->L(), 1);
+
+			lua_pushstring(pLuaEngine->L(), "antiAlias");
+			lua_gettable(pLuaEngine->L(), -2);
+			config.antiAlias = (int)lua_tonumber(pLuaEngine->L(), -1);
+			lua_pop(pLuaEngine->L(), 1);			
+			
+			lua_pushstring(pLuaEngine->L(), "resolution");
+			lua_gettable(pLuaEngine->L(), -2);
+			if (lua_istable(pLuaEngine->L(), -1))
+			{				
+				lua_pushstring(pLuaEngine->L(), "window_width");
+				lua_gettable(pLuaEngine->L(), -2);
+				config.window_width = (int)lua_tonumber(pLuaEngine->L(), -1);
+				lua_pop(pLuaEngine->L(), 1);
+				
+				lua_pushstring(pLuaEngine->L(), "window_height");
+				lua_gettable(pLuaEngine->L(), -2);
+				config.window_height = (int)lua_tonumber(pLuaEngine->L(), -1);
+				lua_pop(pLuaEngine->L(), 1);
+			}
 		}
 	}
+}
 
-	/*
-		Ideally each object you want to expose would implement its own version of this method:
-		static void register_lua(lua_State* L);
-		//register person class into lua script engine
-		Person::register_lua(engine->L());
-	 */
 
+
+
+int main()
+{
+	LuaEngine * pLuaEngine = new LuaEngine();
+	std::thread conThread(ConsoleThread, pLuaEngine->L());
+
+	// Load engine configurations.
+	engine_config_t config;
+	loadConfig(pLuaEngine, config);
+	
 	irr::SIrrlichtCreationParameters params;
 	params.DriverType = irr::video::EDT_SOFTWARE;
-	params.WindowSize = irr::core::dimension2d<irr::u32>(windowWidth, windowHeight);
-	params.Vsync = true;
-	params.AntiAlias = 8;
+	params.WindowSize = irr::core::dimension2d<irr::u32>(config.window_width, config.window_height);
+	params.Fullscreen = config.fullscreen;
+	params.Vsync = config.vSync;
+	params.AntiAlias = config.antiAlias;
 	irr::IrrlichtDevice* device = createDeviceEx(params);
 	if (!device)
 		return EXIT_FAILURE;
 
 	
-	device->setWindowCaption(L"Test_Project");
+	device->setWindowCaption(config.title.c_str());
 	irr::video::IVideoDriver* driver = device->getVideoDriver();
 	irr::scene::ISceneManager* sceneManager = device->getSceneManager();
 	irr::gui::IGUIEnvironment* guienv = device->getGUIEnvironment();
@@ -152,7 +184,7 @@ int main()
 			guienv->drawAll();
 			driver->endScene();
 
-
+			/*
 			// Add FPS to the title.
 			framesPerSecond = driver->getFPS();
 			if (lastFPS != framesPerSecond)
@@ -163,6 +195,7 @@ int main()
 				device->setWindowCaption(str.c_str());
 				lastFPS = framesPerSecond;
 			}
+			*/
 		}
 		else
 		{

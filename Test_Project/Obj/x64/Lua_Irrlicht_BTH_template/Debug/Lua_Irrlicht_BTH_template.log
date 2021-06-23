@@ -1,20 +1,20 @@
 ﻿  Main.cpp
-C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(145,65): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(177,65): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=irr::f32
           ]
-C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(145,59): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(177,59): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=irr::f32
           ]
-C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(145,53): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(177,53): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=irr::f32
           ]
-C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(146,51): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(178,51): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=irr::f32
