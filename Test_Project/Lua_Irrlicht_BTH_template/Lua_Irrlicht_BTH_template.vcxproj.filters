@@ -12,6 +12,7 @@
       <Filter>Lua</Filter>
     </ClCompile>
     <ClCompile Include="Config.cpp" />
+    <ClCompile Include="MyEventReceiver.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LuaEngine.h">
@@ -19,5 +20,6 @@
     </ClInclude>
     <ClInclude Include="Core.h" />
     <ClInclude Include="Config.h" />
+    <ClInclude Include="MyEventReceiver.h" />
   </ItemGroup>
 </Project>

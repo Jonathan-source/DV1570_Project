@@ -11,10 +11,12 @@
 #include <thread>
 #include "lua.hpp"
 #include <irrlicht.h>
+#include "MyEventReceiver.h"
 
 // Custom Classes.
 #include "LuaEngine.h"
 #include "Config.h"
+#include "../LuaLib/lua.h"
 
 
 void ConsoleThread(lua_State* L) {
@@ -90,6 +92,8 @@ int main()
 {
 	LuaEngine * pLuaEngine = new LuaEngine();
 	std::thread conThread(ConsoleThread, pLuaEngine->L());
+	// create device
+	MyEventReceiver receiver;
 
 	// Load engine configurations.
 	engine_config_t config;
@@ -101,6 +105,7 @@ int main()
 	params.Fullscreen = config.fullscreen;
 	params.Vsync = config.vSync;
 	params.AntiAlias = config.antiAlias;
+	params.EventReceiver = &receiver;
 	irr::IrrlichtDevice* device = createDeviceEx(params);
 	if (!device)
 		return EXIT_FAILURE;
@@ -129,6 +134,7 @@ int main()
 	
 	// Set meshNode material texture
 	meshSceneNode->setMaterialTexture(0, texture);
+	meshSceneNode->setMaterialFlag(video::EMF_LIGHTING, true);
 
 	// Set material type. Change to support eg. transparency
 	meshSceneNode->setMaterialType(irr::video::EMT_SOLID);
@@ -184,7 +190,36 @@ int main()
 				meshSceneNode->setRotation(irr::core::vector3df(rotX, rotY, rotZ));
 				dirLight->setRotation(irr::core::vector3df(0, rotY, 0));
 			}
-			
+
+
+			//
+			//MOVEMENT TEST KEYBOARD
+			//
+			core::vector3df nodePosition = meshSceneNode->getPosition();
+
+			//TODO FIX MOUSE INPUT
+			if (receiver.IsKeyDown(irr::EKEY_CODE::KEY_LBUTTON))
+				nodePosition.Z += 1 * deltaTime;
+			else if (receiver.IsKeyDown(irr::EKEY_CODE::KEY_RBUTTON))
+				nodePosition.Z -= 1 * deltaTime;
+
+
+			if (receiver.IsKeyDown(irr::KEY_KEY_W))
+				nodePosition.Y += 1 * deltaTime;
+
+			else if (receiver.IsKeyDown(irr::KEY_KEY_S))
+				nodePosition.Y -= 1 * deltaTime;
+
+			if (receiver.IsKeyDown(irr::KEY_KEY_A))
+				nodePosition.X -= 1 * deltaTime;
+
+			else if (receiver.IsKeyDown(irr::KEY_KEY_D))
+				nodePosition.X += 1 * deltaTime;
+
+			meshSceneNode->setPosition(nodePosition);
+
+
+
 			
 			driver->beginScene(true, true, irr::video::SColor(255, 90, 101, 140));
 			sceneManager->drawAll();

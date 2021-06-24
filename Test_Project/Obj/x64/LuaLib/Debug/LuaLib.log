@@ -34,4 +34,4 @@
   lvm.c
   lzio.c
   Generating Code...
-  LuaLib.vcxproj -> C:\Dev\DV1570_Project\Test_Project\lib\x64\LuaLibD.lib
+  LuaLib.vcxproj -> C:\Dev\DV1570_Project\Test_Project\lib/x64/LuaLibD.lib

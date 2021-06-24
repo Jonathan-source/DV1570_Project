@@ -1,22 +1,22 @@
 ﻿  Main.cpp
-C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(184,65): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=irr::f32
-          ]
-C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(184,59): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=irr::f32
-          ]
-C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(184,53): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=irr::f32
-          ]
-C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(185,51): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=irr::f32
-          ]
-  Lua_Irrlicht_BTH_template.vcxproj -> C:\Dev\DV1570_Project\Test_Project\Bin\x64\Lua_Irrlicht_BTH_templateD.exe
+C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(190,65): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(190,65): warning C4244:         with
+C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(190,65): warning C4244:         [
+C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(190,65): warning C4244:             T=irr::f32
+C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(190,65): warning C4244:         ]
+C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(190,59): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(190,59): warning C4244:         with
+C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(190,59): warning C4244:         [
+C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(190,59): warning C4244:             T=irr::f32
+C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(190,59): warning C4244:         ]
+C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(190,53): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(190,53): warning C4244:         with
+C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(190,53): warning C4244:         [
+C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(190,53): warning C4244:             T=irr::f32
+C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(190,53): warning C4244:         ]
+C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(191,51): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(191,51): warning C4244:         with
+C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(191,51): warning C4244:         [
+C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(191,51): warning C4244:             T=irr::f32
+C:\Dev\DV1570_Project\Test_Project\Lua_Irrlicht_BTH_template\Main.cpp(191,51): warning C4244:         ]
+  Lua_Irrlicht_BTH_template.vcxproj -> C:\Dev\DV1570_Project\Test_Project\Bin/x64/Lua_Irrlicht_BTH_templateD.exe
