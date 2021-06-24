@@ -27,6 +27,15 @@ void ConsoleThread(lua_State* L) {
 	}
 }
 
+void DumpStack(lua_State* L)
+{
+	std::cout << "------- STACK DUMP -------\n";
+	for (int i = lua_gettop(L); i > 0; i--)
+	{
+		std::cout << "Index " << i << ": " << lua_typename(L, lua_type(L, i)) << "\n";
+	}
+	std::cout << "--------------------------\n";
+}
 
 // Jesus Fuck...
 void loadConfig(LuaEngine* pLuaEngine, engine_config_t &config)
@@ -71,10 +80,10 @@ void loadConfig(LuaEngine* pLuaEngine, engine_config_t &config)
 				lua_pop(pLuaEngine->L(), 1);
 			}
 		}
+		
+		DumpStack(pLuaEngine->L());
 	}
 }
-
-
 
 
 int main()
@@ -96,7 +105,6 @@ int main()
 	if (!device)
 		return EXIT_FAILURE;
 
-	
 	device->setWindowCaption(config.title.c_str());
 	irr::video::IVideoDriver* driver = device->getVideoDriver();
 	irr::scene::ISceneManager* sceneManager = device->getSceneManager();
@@ -108,14 +116,13 @@ int main()
 	irr::scene::ICameraSceneNode* camera = sceneManager->addCameraSceneNode();
 	camera->setPosition(irr::core::vector3df(0, 0, 5));
 	camera->setTarget(irr::core::vector3df(0, 0, 0));
-
 	
 	//
 	// ADDING MESH.
 	//
 	// Load mesh & texture
-	irr::scene::IMesh* monkey = sceneManager->getMesh("C:/Dev/DV1570_Project/Test_Project/Lua_Irrlicht_BTH_template/Monkey.obj");
-	irr::video::ITexture * texture = driver->getTexture("C:/Dev/DV1570_Project/Test_Project/Lua_Irrlicht_BTH_template/Texture_Monkey.png");
+	irr::scene::IMesh* monkey = sceneManager->getMesh("C:/Dev/DV1570_Project/Test_Project/Assets/Monkey.obj");
+	irr::video::ITexture * texture = driver->getTexture("C:/Dev/DV1570_Project/Test_Project/Assets/Texture_Monkey.png");
 
 	// Add mesh to scene
 	auto meshSceneNode = sceneManager->addMeshSceneNode(monkey);
