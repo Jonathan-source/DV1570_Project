@@ -10,3 +10,11 @@ Bin/
 *.db-shm
 *.db-wal
 *.obj
+Test_Project/.vs/Lua_Irrlicht_BTH_template/v16/.suo
+Test_Project/Bin/x64/Lua_Irrlicht_BTH_templateD.exe
+Test_Project/Bin/x64/Lua_Irrlicht_BTH_templateD.pdb
+Test_Project/Obj/x64/Lua_Irrlicht_BTH_template/Debug/Lua_Irrl.3B9B47DC.tlog/link.read.1.tlog
+Test_Project/Obj/x64/Lua_Irrlicht_BTH_template/Debug/Lua_Irrlicht_BTH_templateD.ilk
+Test_Project/Obj/x64/Lua_Irrlicht_BTH_template/Debug/Main.obj
+Test_Project/Obj/x64/Lua_Irrlicht_BTH_template/Debug/vc142.idb
+Test_Project/Obj/x64/Lua_Irrlicht_BTH_template/Debug/vc142.pdb
