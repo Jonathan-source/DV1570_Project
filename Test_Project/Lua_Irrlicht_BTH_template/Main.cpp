@@ -12,7 +12,6 @@
 #include "lua.hpp"
 #include <irrlicht.h>
 #include "MyEventReceiver.h"
-
 // Custom Classes.
 #include "LuaEngine.h"
 #include "Config.h"
@@ -42,7 +41,7 @@ void DumpStack(lua_State* L)
 // Jesus Fuck...
 void loadConfig(LuaEngine* pLuaEngine, engine_config_t &config)
 {
-	pLuaEngine->ExecuteFile("C:/Dev/DV1570_Project/Test_Project/Scripts/engine_config.lua");
+	pLuaEngine->ExecuteFile("../../Scripts/engine_config.lua");
 	{
 		lua_getglobal(pLuaEngine->L(), "config");
 		if (lua_istable(pLuaEngine->L(), -1))
@@ -126,8 +125,8 @@ int main()
 	// ADDING MESH.
 	//
 	// Load mesh & texture
-	irr::scene::IMesh* monkey = sceneManager->getMesh("C:/Dev/DV1570_Project/Test_Project/Assets/Monkey.obj");
-	irr::video::ITexture * texture = driver->getTexture("C:/Dev/DV1570_Project/Test_Project/Assets/Texture_Monkey.png");
+	irr::scene::IMesh* monkey = sceneManager->getMesh("../../Assets/Monkey.obj");
+	irr::video::ITexture * texture = driver->getTexture("../../Assets/Texture_Monkey.png");
 
 	// Add mesh to scene
 	auto meshSceneNode = sceneManager->addMeshSceneNode(monkey);
