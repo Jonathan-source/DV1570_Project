@@ -24,3 +24,5 @@ Test_Project/lib/x64/LuaLibD.idb
 Test_Project/lib/x64/LuaLibD.pdb
 Test_Project/lib/x64/LuaLibD.lib
 Test_Project/lib/x64/LuaLibD.lib
+*.db
+Test_Project/.vs/Lua_Irrlicht_BTH_template/v16/Browse.VC.db
