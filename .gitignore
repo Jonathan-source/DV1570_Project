@@ -2,7 +2,7 @@
 Test_Project/.vs/Lua_Irrlicht_BTH_template/v16/.suo
 Test_Project/.vs/Lua_Irrlicht_BTH_template/v16/.suo
 *.suo
-/Bin
+Bin/
 *.exe
 *.db
 *.opendb
